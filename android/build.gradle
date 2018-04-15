@@ -1,12 +1,12 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.2"
+    compileSdkVersion 27
+    buildToolsVersion "27.0.3"
 
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 26
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
     }
@@ -19,8 +19,8 @@ android {
 }
 
 dependencies {
-    compile 'com.facebook.react:react-native:+'
-    compile ('com.facebook.android:account-kit-sdk:4.23.0'){
+    implementation 'com.facebook.react:react-native:+'
+    implementation ('com.facebook.android:account-kit-sdk:4.23.0'){
         exclude group: 'com.parse.bolts', module: 'bolts-android';
         exclude group: 'com.parse.bolts', module: 'bolts-applinks';
         exclude group: 'com.parse.bolts', module: 'bolts-tasks';
