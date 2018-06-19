@@ -64,15 +64,18 @@ public class RNAccountKitModule extends ReactContextBaseJavaModule implements Ac
     public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent data) {
         if (requestCode == APP_REQUEST_CODE) {
             if (data == null) {
-                rejectPromise("error", new Error("Login failed"));
+                //rejectPromise("error", new Error("Login failed"));
+                resolvePromise(null);
                 return;
             }
             AccountKitLoginResult loginResult = data.getParcelableExtra(AccountKitLoginResult.RESULT_KEY);
 
             if (loginResult.getError() != null) {
-                rejectPromise("error", new Error(loginResult.getError().getErrorType().getMessage()));
+                //rejectPromise("error", new Error(loginResult.getError().getErrorType().getMessage()));
+                resolvePromise(null);
             } else if (loginResult.wasCancelled()) {
-                rejectPromise("cancel", new Error("Login cancelled"));
+                //rejectPromise("cancel", new Error("Login cancelled"));
+                resolvePromise(null);
             } else {
                 if (loginResult.getAccessToken() != null) {
                     resolvePromise(mapToken(loginResult.getAccessToken()));
